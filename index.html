@@ -91,4 +91,104 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             max-width: 90%;
             font-size: 16px;
-            font-family: 'Monotype Corsiva', curs
+            font-family: 'Monotype Corsiva', cursive;
+            color: #7a2f2f;
+            text-align: left;
+            line-height: 1.5;
+            max-height: 75vh;
+            overflow-y: auto;
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: #ff3366;
+            animation: blink 1s infinite alternate;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="password-section">
+            <h2>Teddy Day Surprise!</h2>
+            <p>Hint: <b>"What do you call me?"</b></p>
+            <input type="text" id="password" placeholder="Enter password...">
+            <button onclick="checkPassword()">Unlock</button>
+        </div>
+
+        <div class="teddy-quote" id="teddy-quote">
+            "A teddy bear is just a panda in disguise, just like me, your Panda for life!"
+        </div>
+
+        <div class="mailbox" id="mailbox">📬</div>
+        <button class="open-letter-btn" id="open-letter-btn" onclick="showLetter()">Open Your Teddy Letter ❤️</button>
+
+        <div class="love-letter" id="love-letter">
+            <h2>My Dearest Sunshine,</h2>
+            <p>
+                Happy Teddy Day, my love! Today, I just want to remind you that like a teddy bear,  
+                I will always be there to cuddle you, to comfort you, and to bring warmth to your heart.  
+                You know, every teddy bear is soft and adorable, but you, my Sunshine,  
+                are the most precious teddy bear of all—one that fills my life with love and joy.
+            </p>
+            <p>
+                Do you remember how we first met? How our story unfolded like a fairytale?  
+                Every little moment with you feels like a cozy hug on a cold day.  
+                If I were a teddy bear, I’d want to be in your arms forever, never letting go.  
+                Your love is my comfort, and your presence is my safe place.
+            </p>
+            <p>
+                I promise to be your Panda forever, to protect you like a teddy bear,  
+                and to always make you smile even on the dullest days.  
+                You are my sweetest Sunshine, and just like a teddy, I want to be by your side,  
+                through every laugh, every tear, and every little adventure we take together.  
+            </p>
+            <p>
+                So, my love, here’s my teddy heart, always beating just for you.  
+                Hold it close and know that my love for you will never fade.  
+                Happy Teddy Day, my Sunshine!  
+            </p>
+            <p><b>Forever Your Panda ❤️</b></p>
+            <div class="scroll-indicator" id="scroll-indicator">⬇ Scroll Down ⬇</div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value.toLowerCase();
+            if (password === "panda") {
+                document.querySelector(".password-section").style.display = "none";
+                document.getElementById("teddy-quote").style.display = "block";
+                document.getElementById("mailbox").style.display = "block";
+                document.getElementById("open-letter-btn").style.display = "block";
+            } else {
+                alert("Wrong password! Think harder, Sunshine 🌻");
+            }
+        }
+
+        function showLetter() {
+            document.getElementById("teddy-quote").style.display = "none";
+            document.getElementById("mailbox").style.display = "none";
+            document.getElementById("open-letter-btn").style.display = "none";
+            document.getElementById("love-letter").style.display = "block";
+
+            // Hide scroll indicator after 5 seconds
+            setTimeout(() => {
+                document.getElementById("scroll-indicator").style.display = "none";
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
