@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy Day for My Sunshine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffebeb;
+            color: #7a2f2f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .password-container {
+            display: block;
+        }
+        .content {
+            display: none;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #7a2f2f;
+            border-radius: 5px;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 18px;
+            background-color: #ff6b6b;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d64b4b;
+        }
+        .teddy {
+            width: 200px;
+            height: 200px;
+            background: url('https://i.imgur.com/boGp8E2.png') no-repeat center/cover;
+            margin: 20px auto;
+            animation: bounce 2s infinite alternate ease-in-out;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-20px); }
+        }
+        .love-message {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .love-letter {
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="password-container">
+        <h2>Happy Teddy Day, Sunshine! 🧸</h2>
+        <p><strong>Hint:</strong> "What you call me"?</p>
+        <input type="text" id="password" placeholder="Enter the secret word">
+        <button onclick="checkPassword()">Unlock</button>
+    </div>
+
+    <div class="content">
+        <div class="teddy"></div>
+        <p class="love-message">"Just like this teddy, I'll always be your warm hug, your comfort, and your Panda! Happy Teddy Day, my Sunshine! 💖"</p>
+        <div class="love-letter">
+            <p>Dear Riddhi,</p>
+            <p>Every moment with you feels like the warmest hug. You are my happiness, my sunshine, my everything. Just like this teddy, I promise to always be by your side, bringing you comfort, love, and endless joy.</p>
+            <p>Love you forever,<br>Panda 🐼</p>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            let input = document.getElementById('password').value.toLowerCase();
+            if (input === "panda") {
+                document.querySelector('.password-container').style.display = 'none';
+                document.querySelector('.content').style.display = 'block';
+            } else {
+                alert("Wrong password! Try again, Sunshine! 🌻");
+            }
+        }
+    </script>
+
+</body>
+</html>
