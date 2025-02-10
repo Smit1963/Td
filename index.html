@@ -8,7 +8,9 @@
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            background-color: #ffebeb;
+            background: url('file-Ge7RgnhpCE3yuFhQsrE5Wt') no-repeat center/cover;
+            background-size: cover;
+            background-attachment: fixed;
             color: #7a2f2f;
             display: flex;
             justify-content: center;
@@ -18,9 +20,13 @@
         }
         .password-container {
             display: block;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
         }
         .content {
             display: none;
+            text-align: center;
         }
         input {
             padding: 10px;
@@ -43,29 +49,47 @@
             background-color: #d64b4b;
         }
         .teddy {
-            width: 200px;
-            height: 200px;
-            background: url('https://i.imgur.com/boGp8E2.png') no-repeat center/cover;
+            width: 150px;
+            height: 150px;
+            background: url('file-TVYLZ5Rj7P71obAFxTfyZR') no-repeat center/cover;
             margin: 20px auto;
             animation: bounce 2s infinite alternate ease-in-out;
+            cursor: pointer;
         }
         @keyframes bounce {
             0% { transform: translateY(0px); }
-            100% { transform: translateY(-20px); }
+            100% { transform: translateY(-15px); }
         }
-        .love-message {
+        .quote {
             font-size: 20px;
             font-weight: bold;
             margin-top: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        .mailbox {
+            margin-top: 30px;
+            font-size: 22px;
+            font-weight: bold;
+            background-color: #ffcc99;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .mailbox:hover {
+            background-color: #ff9966;
         }
         .love-letter {
-            margin-top: 20px;
+            display: none;
             background-color: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            display: inline-block;
             max-width: 80%;
+            font-size: 24px;
         }
     </style>
 </head>
@@ -73,19 +97,21 @@
 
     <div class="password-container">
         <h2>Happy Teddy Day, Sunshine! 🧸</h2>
-        <p><strong>Hint:</strong> "What you call me"?</p>
+        <p><strong>Hint:</strong> "What do you call me?"</p>
         <input type="text" id="password" placeholder="Enter the secret word">
         <button onclick="checkPassword()">Unlock</button>
     </div>
 
     <div class="content">
-        <div class="teddy"></div>
-        <p class="love-message">"Just like this teddy, I'll always be your warm hug, your comfort, and your Panda! Happy Teddy Day, my Sunshine! 💖"</p>
-        <div class="love-letter">
-            <p>Dear Riddhi,</p>
-            <p>Every moment with you feels like the warmest hug. You are my happiness, my sunshine, my everything. Just like this teddy, I promise to always be by your side, bringing you comfort, love, and endless joy.</p>
-            <p>Love you forever,<br>Panda 🐼</p>
-        </div>
+        <div class="teddy" onclick="showMailbox()"></div>
+        <p class="quote">"Like this teddy, I will always be your warmest hug, your softest comfort, and your Panda forever! 💖"</p>
+        <div class="mailbox" onclick="openLetter()">📩 Click to open your Teddy Day Letter</div>
+    </div>
+
+    <div class="love-letter">
+        <p>Dear Riddhi,</p>
+        <p>You are my cutest, cuddliest, and most lovable Sunshine! Just like a teddy bear, I promise to always be your comfort, your happiness, and your forever Panda. Every hug, every moment, every smile—it's all for you. Happy Teddy Day, my love! 🧸💖</p>
+        <p>Forever Yours,<br>Panda 🐼</p>
     </div>
 
     <script>
@@ -97,6 +123,11 @@
             } else {
                 alert("Wrong password! Try again, Sunshine! 🌻");
             }
+        }
+
+        function openLetter() {
+            document.querySelector('.content').style.display = 'none';
+            document.querySelector('.love-letter').style.display = 'block';
         }
     </script>
 
